@@ -1,0 +1,24 @@
+The primary issue is ensuring consistent usage of units within the `calc()` function and understanding that percentages are relative to the parent container's dimensions.  For reliable results, define the elements whose dimensions affect the calculation.  Avoid ambiguous expressions.
+
+Instead of:
+```css
+.element {
+  width: calc(50% - 10px);
+}
+```
+
+Consider:
+```css
+.container {
+  width: 500px;
+}
+.element {
+  width: calc(50% - 10px);
+}
+/* Or use explicit values if possible */
+.element {
+  width: 240px; /* 50% of 500px - 10px */
+}
+```
+
+For more complex calculations, break them down into smaller, clearer steps to make the code easier to read and maintain and reduce the chance of errors.
